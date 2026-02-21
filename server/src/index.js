@@ -34,14 +34,7 @@ const limiter = rateLimit({
 app.use(limiter)
 
 // Stricter CORS for production
-const corsOptions = {
-  origin: process.env.NODE_ENV === 'production' 
-    ? ['https://yourdomain.com'] // Replace with your actual domain
-    : ['http://localhost:5173', 'http://localhost:5174'], // Development URLs
-  credentials: true,
-  optionsSuccessStatus: 200
-}
-app.use(cors(corsOptions))
+app.use(cors())
 
 // Input sanitization
 app.use(sanitizeInput)
